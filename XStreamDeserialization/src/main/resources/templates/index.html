@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>XStream Deserialization</title>
+<link href="webjars/bootstrap/4.4.1/css/bootstrap.min.css"
+	rel="stylesheet">
+</head>
+<body>
+	<header>
+		<nav
+			class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+			<div class="container">
+				<a class="navbar-brand" href="/">XStream Deserialization</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse"
+					data-target=".navbar-collapse"
+					aria-controls="navbarSupportedContent" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+			</div>
+		</nav>
+	</header>
+	<div class="container">
+		<main role="main" class="pb-3">
+			<center>
+				<div class="row" style="position: relative">
+					<div class="col-md-12">
+						<h2>Weather Data at Your Finger Tips</h2>
+					</div>
+				</div>
+			</center>
+			<br />
+			<div style="width: 60%; margin: auto;">
+				<table class="table table-hover table-striped">
+				   <thead>
+				       <tr>
+				           <th>City</th>
+				           <th>Status</th>
+				           <th>Description</th>
+				           <th>Avg. Temperature (Celcius)</th>
+				       </tr>
+				   </thead>
+					<tbody>
+						<tr th:each="weather: ${weatherdata}">
+							<td class="table-dark" th:text="${weather.name}" />
+							<td th:text="${weather.main}" />
+							<td th:text="${weather.description}" />
+							<td th:text="${weather.temp}" />
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</main>
+	</div>
+	<footer class="border-top footer text-muted">
+		<div class="container">Software Security Anti-Patterns &copy;
+			2020</div>
+	</footer>
+	<script src="webjars/jquery/3.4.1/jquery.min.js"></script>
+	<script src="webjars/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<script src="static/site.js"></script>
+</body>
+</html>
